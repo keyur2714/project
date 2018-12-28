@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": "6"
+        },
+        {
+            "fieldName": "unitPrice",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "expiryDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "warranty",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20180909060346",
+    "dto": "mapstruct",
+    "searchEngine": "elasticsearch",
+    "service": "serviceImpl",
+    "entityTableName": "product",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

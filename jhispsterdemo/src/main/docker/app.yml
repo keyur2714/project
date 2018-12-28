@@ -1,0 +1,20 @@
+version: '2'
+services:
+    jhispsterdemo-app:
+        image: jhispsterdemo
+        environment:
+            # - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://jhispsterdemo-mysql:3306/jhispsterdemo?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=jhispsterdemo-elasticsearch:9300
+        ports:
+            - 8080:8080
+    jhispsterdemo-mysql:
+        extends:
+            file: mysql.yml
+            service: jhispsterdemo-mysql
+    jhispsterdemo-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: jhispsterdemo-elasticsearch
